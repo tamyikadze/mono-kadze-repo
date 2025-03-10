@@ -31,6 +31,7 @@ declare module "next-auth/jwt" {
 export const { auth, handlers, signIn, signOut } = NextAuth({
   callbacks: {
     async jwt({ token, user }) {
+      console.log(user)
       if (user) {
         // First-time login, save the `access_token`, its expiry and the `refresh_token`
         return {
