@@ -24,7 +24,7 @@ either update .env file to use an existing db or create a new one
 for docker instance
 
 ```bash
-docker-compose -f docker/docker-compose.local-dev.yml up -d
+docker-compose -f .docker/docker-compose.local-dev.yaml up -d
 ```
 
 for local instance
