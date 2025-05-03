@@ -1,17 +1,6 @@
-import BaseConfig from "./base.js";
 import reactCompiler from "eslint-plugin-react-compiler";
-import reactPlugin from "eslint-plugin-react";
+import { defineConfig } from "eslint/config";
 
-export default [
-  ...BaseConfig,
-  reactCompiler.configs.recommended,
-  {
-    rules: {
-      'react-compiler/react-compiler': "warn",
-    }
-  }
-  // {
-  //   ...reactPlugin.configs.flat.recommended,
-  // },
-  // reactPlugin.configs.flat['jsx-runtime']
-]
+import baseConfig from "./base.mjs";
+
+export default defineConfig([...baseConfig, reactCompiler.configs.recommended]);

@@ -1,13 +1,10 @@
-import ReactConfig from "./react.js";
-import { FlatCompat } from '@eslint/eslintrc'
 import pluginNext from "@next/eslint-plugin-next";
+import { defineConfig } from "eslint/config";
 
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-})
+import reactConfig from "./react.mjs";
 
-export default [
-  ...ReactConfig,
+export default defineConfig([
+  ...reactConfig,
   {
     plugins: {
       "@next/next": pluginNext,
@@ -17,15 +14,4 @@ export default [
       ...pluginNext.configs["core-web-vitals"].rules,
     },
   },
-  // ...compat.config({
-  //   extends: ['next/core-web-vitals', 'next/typescript'],
-  //   rules: {
-  //     'react-hooks/exhaustive-deps': 'off',
-  //   },
-  //   settings: {
-  //     next: {
-  //       rootDir: ['apps/*/']
-  //     }
-  //   }
-  // })
-]
+]);
