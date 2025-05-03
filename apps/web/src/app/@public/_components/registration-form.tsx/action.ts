@@ -1,8 +1,9 @@
 'use server'
 
-import {z} from "zod";
-import { trpcClient } from '@repo/sdk';
-import { insertUserSchema } from '../../../../../../db/src/schemas';
+import { trpcClient } from '@repo/sdk'
+import { z } from 'zod'
+
+import { insertUserSchema } from '../../../../../../db/src/schemas'
 
 export const register = async (data: z.infer<typeof insertUserSchema>) => {
   console.log(data)

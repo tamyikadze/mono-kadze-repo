@@ -1,7 +1,7 @@
 import pluginNext from "@next/eslint-plugin-next";
 import { defineConfig } from "eslint/config";
 
-import reactConfig from "./react.mjs";
+import reactConfig from "./react.js";
 
 export default defineConfig([
   ...reactConfig,

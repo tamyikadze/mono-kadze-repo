@@ -7,7 +7,8 @@
   "types": "src/index.ts",
   "exports": {
     ".": "./src/index.ts",
-    "./zod": "./src/zod.ts"
+    "./schema": "./src/schemas/index.ts",
+    "./zod": "./src/schemas/zod.ts"
   },
   "scripts": {
     "dev": "dotenv -e ../../.env drizzle-kit studio --port 4001",

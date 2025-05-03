@@ -1,7 +1,7 @@
 import { drizzle } from 'drizzle-orm/node-postgres'
+import pg from 'pg'
 
 import * as Schemas from './schemas/index.ts'
-import pg from 'pg'
 const { Client } = pg
 
 export const client = new Client({

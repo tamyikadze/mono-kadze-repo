@@ -1,6 +1,6 @@
 'use client'
 
-import {createTRPCContext} from "@trpc/tanstack-react-query";
-import {AppRouter} from "@apps/api";
+import { AppRouter } from '@apps/api'
+import { createTRPCContext } from '@trpc/tanstack-react-query'
 
-export const {useTRPC, useTRPCClient, TRPCProvider} = createTRPCContext<AppRouter>();
+export const { TRPCProvider, useTRPC, useTRPCClient } = createTRPCContext<AppRouter>()

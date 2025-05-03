@@ -1,4 +1,5 @@
 import { initTRPC, TRPCError } from '@trpc/server'
+
 import { AuthContext } from './context/auth-context.ts'
 
 /**

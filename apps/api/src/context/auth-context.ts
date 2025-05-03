@@ -1,5 +1,8 @@
-import { decodeAndVerifyJwtToken } from '../routes/auth/util.js'
 import { CreateFastifyContextOptions } from '@trpc/server/adapters/fastify'
+
+import { decodeAndVerifyJwtToken } from '../routes/auth/util.js'
+
+export type AuthContext = Awaited<ReturnType<typeof createContext>>
 
 export async function createContext(opts: CreateFastifyContextOptions) {
   async function getUserFromHeader() {
@@ -15,5 +18,3 @@ export async function createContext(opts: CreateFastifyContextOptions) {
     user,
   }
 }
-
-export type AuthContext = Awaited<ReturnType<typeof createContext>>

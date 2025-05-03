@@ -1,7 +1,7 @@
 'use client'
 
-import {PropsWithChildren, ReactNode} from "react";
-import {isServer, QueryClient, QueryClientProvider} from "@tanstack/react-query";
+import { isServer, QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactNode } from 'react'
 
 function makeQueryClient() {
   return new QueryClient({
@@ -32,7 +32,9 @@ function getQueryClient() {
   }
 }
 
-export const TanstackProvider = ({children}: {
+export const TanstackProvider = ({
+  children,
+}: {
   children: (queryClient: QueryClient) => ReactNode
 }) => {
   const queryClient = getQueryClient()
