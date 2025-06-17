@@ -1,6 +1,6 @@
 {
   "name": "@repo/ui",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "type": "module",
   "sideEffects": [
     "**/*.css"
@@ -41,26 +41,26 @@
     "@repo/config-eslint": "workspace:*",
     "@repo/config-prettier": "workspace:*",
     "@repo/config-typescript": "workspace:*",
-    "@tailwindcss/cli": "^4.1.5",
-    "@tailwindcss/postcss": "^4.1.5",
-    "@types/node": "^22.15.3",
-    "eslint": "^9.26.0",
-    "prettier-plugin-tailwindcss": "^0.6.11"
+    "@tailwindcss/cli": "^4.1.10",
+    "@tailwindcss/postcss": "^4.1.10",
+    "@types/node": "^24.0.3",
+    "eslint": "^9.29.0",
+    "prettier-plugin-tailwindcss": "^0.6.12"
   },
   "dependencies": {
-    "@radix-ui/react-dialog": "^1.1.11",
-    "@radix-ui/react-label": "^2.1.4",
-    "@radix-ui/react-separator": "^1.1.4",
-    "@radix-ui/react-slot": "^1.2.0",
-    "@radix-ui/react-tooltip": "^1.2.4",
+    "@radix-ui/react-dialog": "^1.1.14",
+    "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-separator": "^1.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-tooltip": "^1.2.7",
     "@tailwindcss/typography": "^0.5.16",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.507.0",
+    "lucide-react": "^0.516.0",
     "prettier": "^3.5.3",
-    "react-hook-form": "^7.56.1",
-    "tailwind-merge": "^3.2.0",
+    "react-hook-form": "^7.58.1",
+    "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.24.3"
+    "zod": "^3.25.67"
   }
 }
