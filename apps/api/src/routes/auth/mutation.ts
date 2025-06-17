@@ -1,10 +1,11 @@
-import { publicProcedure } from '../../trpc.ts'
-import { z } from 'zod'
-import { generateTokens, verifyToken } from './util.ts'
-import { loginInputSchema } from './schema.js'
 import { db, users } from '@apps/db'
-import { eq } from 'drizzle-orm'
 import bcrypt from 'bcryptjs'
+import { eq } from 'drizzle-orm'
+import { z } from 'zod'
+
+import { publicProcedure } from '../../trpc.ts'
+import { loginInputSchema } from './schema.js'
+import { generateTokens, verifyToken } from './util.ts'
 
 const login = publicProcedure.input(loginInputSchema).mutation(async ({ input }) => {
   const user = await db.query.users.findFirst({
@@ -15,9 +16,9 @@ const login = publicProcedure.input(loginInputSchema).mutation(async ({ input })
     throw new Error('Invalid email or password')
   }
 
-  const { accessToken, refreshToken } = generateTokens({ userId: user.id, email: user.email })
-  
-  return { accessToken, refreshToken, expiresIn: 3600 }
+  const { accessToken, refreshToken } = generateTokens({ email: user.email, userId: user.id })
+
+  return { accessToken, expiresIn: 3600, refreshToken }
 })
 
 const generateAccessToken = publicProcedure
@@ -45,6 +46,6 @@ const generateAccessToken = publicProcedure
   })
 
 export default {
-  login,
   generateAccessToken,
+  login,
 }

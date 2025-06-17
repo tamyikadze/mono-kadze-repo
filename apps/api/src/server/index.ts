@@ -1,8 +1,9 @@
+import cors from '@fastify/cors'
 import { fastifyTRPCPlugin, FastifyTRPCPluginOptions } from '@trpc/server/adapters/fastify'
 import fastify from 'fastify'
-import { AppRouter, appRouter } from './router.js'
+
 import { createContext } from '../context/auth-context.js'
-import cors from '@fastify/cors'
+import { AppRouter, appRouter } from './router.js'
 
 export const createServer = () => {
   const server = fastify({
@@ -16,12 +17,12 @@ export const createServer = () => {
   server.register(fastifyTRPCPlugin, {
     prefix: '/trpc',
     trpcOptions: {
-      router: appRouter,
       createContext,
-      onError({ path, error }) {
+      onError({ error, path }) {
         // report to error monitoring
         console.error(`Error in tRPC handler on path '${path}':`, error)
       },
+      router: appRouter,
     } satisfies FastifyTRPCPluginOptions<AppRouter>['trpcOptions'],
   })
 

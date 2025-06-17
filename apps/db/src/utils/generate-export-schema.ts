@@ -1,35 +1,40 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import * as glob from 'glob';
+import * as fs from 'fs'
+import { glob } from 'node:fs/promises'
+import * as path from 'path'
 
-function generateExports({dirPath, pattern, output}: {dirPath: string, pattern: string, output: string}): void {
-  const exports: string[] = [];
-  const schemaFiles = glob.sync(pattern, { cwd: dirPath });
+async function generateExports({
+  dirPath,
+  output,
+  pattern,
+}: {
+  dirPath: string
+  output: string
+  pattern: string
+}) {
+  let indexContent = ''
 
-  schemaFiles.forEach(filePath => {
+  for await (const filePath of glob(pattern, { cwd: dirPath })) {
     // Construct the full path to the schema file.
-    const fullFilePath = path.posix.join('./', filePath);
-    // Important: Use backticks for template literals and ${} for variable interpolation.
-    exports.push(`export * from '${fullFilePath}';`);
-  });
+    const fullFilePath = path.posix.join('./', filePath)
 
-  const indexContent: string = exports.join('\n');
+    indexContent += `export * from './${fullFilePath}'\n`
+  }
 
   try {
-    fs.writeFileSync(output, indexContent);
+    fs.writeFileSync(output, indexContent)
   } catch (err) {
-    console.error(`Error writing to file ${output}:`, err);
+    console.error(`Error writing to file ${output}:`, err)
   }
 }
 
-generateExports({
+await generateExports({
   dirPath: './src/schemas',
-  pattern: '**/*/schema.ts',
   output: './src/schemas/index.ts',
-});
+  pattern: '**/*/schema.ts',
+})
 
-generateExports({
+await generateExports({
   dirPath: './src/schemas',
-  pattern: '**/*/zod.ts',
   output: './src/schemas/zod.ts',
+  pattern: '**/*/zod.ts',
 })

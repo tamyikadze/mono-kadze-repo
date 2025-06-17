@@ -13,7 +13,10 @@
     "AUTH_SECRET",
     "AUTH_TRUST_HOST",
     "API_URL",
-    "NEXT_PUBLIC_API_URL"
+    "NEXT_PUBLIC_API_URL",
+    "CALLBACK_URL_COOKIE_NAME",
+    "CSRF_TOKEN_COOKIE_NAME",
+    "SESSION_TOKEN_COOKIE_NAME"
   ],
   "tasks": {
     "build": {

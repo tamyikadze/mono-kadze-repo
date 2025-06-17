@@ -1,1 +1,1 @@
-export * from './user/index.ts'
+export * from './user/schema.ts'

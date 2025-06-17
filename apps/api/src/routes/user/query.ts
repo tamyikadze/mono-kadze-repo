@@ -1,5 +1,6 @@
-import { publicProcedure } from '../../trpc.ts'
 import { db } from '@apps/db'
+
+import { publicProcedure } from '../../trpc.ts'
 
 const list = publicProcedure.query(async () => {
   return db.query.users.findMany({
