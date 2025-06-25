@@ -38,11 +38,11 @@
     "@repo/config-eslint": "workspace:*",
     "@repo/config-prettier": "workspace:*",
     "@repo/config-typescript": "workspace:*",
-    "@types/node": "^24.0.3",
+    "@types/node": "^24.0.4",
     "@types/pg": "^8.15.4",
-    "drizzle-kit": "^0.31.1",
+    "drizzle-kit": "^0.31.2",
     "eslint": "^9.29.0",
-    "prettier": "^3.5.3",
+    "prettier": "^3.6.1",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   }

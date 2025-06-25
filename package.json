@@ -13,9 +13,9 @@
     "create-db": "pnpm --filter @apps/db create-db"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.5",
     "dotenv-cli": "^8.0.0",
-    "turbo": "^2.5.4",
-    "@changesets/cli": "^2.29.4"
+    "turbo": "^2.5.4"
   },
   "packageManager": "pnpm@10.6.3",
   "engines": {

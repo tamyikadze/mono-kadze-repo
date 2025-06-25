@@ -23,8 +23,8 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@trpc/client": "^11.4.1",
-    "@trpc/tanstack-react-query": "^11.4.1",
+    "@trpc/client": "^11.4.2",
+    "@trpc/tanstack-react-query": "^11.4.2",
     "next-auth": "5.0.0-beta.26",
     "zod": "^3.25.67"
   },
@@ -32,10 +32,10 @@
     "@repo/config-eslint": "workspace:*",
     "@repo/config-prettier": "workspace:*",
     "@repo/config-typescript": "workspace:*",
-    "@types/node": "^24.0.3",
+    "@types/node": "^24.0.4",
     "@types/react": "^19.1.8",
     "eslint": "^9.29.0",
-    "prettier": "^3.5.3",
-    "prettier-plugin-tailwindcss": "^0.6.12"
+    "prettier": "^3.6.1",
+    "prettier-plugin-tailwindcss": "^0.6.13"
   }
 }

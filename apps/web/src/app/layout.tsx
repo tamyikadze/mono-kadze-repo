@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 
-import { Provider } from '@/providers/provider'
-import '@/style/globals.css'
 import { auth } from '@repo/sdk'
+
+import '@/style/globals.css'
 import { cn } from '@repo/ui/lib'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { ReactNode } from 'react'
+
+import { Provider } from '@/providers/provider'
 
 const geistSans = Geist({
   subsets: ['latin'],

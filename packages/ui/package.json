@@ -43,9 +43,9 @@
     "@repo/config-typescript": "workspace:*",
     "@tailwindcss/cli": "^4.1.10",
     "@tailwindcss/postcss": "^4.1.10",
-    "@types/node": "^24.0.3",
+    "@types/node": "^24.0.4",
     "eslint": "^9.29.0",
-    "prettier-plugin-tailwindcss": "^0.6.12"
+    "prettier-plugin-tailwindcss": "^0.6.13"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.14",
@@ -56,8 +56,8 @@
     "@tailwindcss/typography": "^0.5.16",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.516.0",
-    "prettier": "^3.5.3",
+    "lucide-react": "^0.523.0",
+    "prettier": "^3.6.1",
     "react-hook-form": "^7.58.1",
     "tailwind-merge": "^3.3.1",
     "tailwindcss-animate": "^1.0.7",
