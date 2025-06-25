@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 
+import { SessionErrorHandler } from '@/components/auth/SessionErrorHandler'
 import { Provider } from '@/providers/provider'
 import '@/style/globals.css'
 import { auth } from '@repo/sdk'
@@ -35,7 +36,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={cn(geistSans.variable, geistMono.variable, 'antialiased')}>
         <Provider accessToken={session?.user?.access_token}>
-          {!session ? publicApp : protectedApp}
+          {!session ? publicApp : <SessionErrorHandler>{protectedApp}</SessionErrorHandler>}
         </Provider>
       </body>
     </html>

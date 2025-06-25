@@ -62,12 +62,17 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
           console.error('Error refreshing access_token', error)
           // If we fail to refresh the token, return an error so we can handle it on the page
           token.error = 'RefreshTokenError'
+          // Clear the tokens to effectively log out the user
+          token.access_token = undefined
+          token.refresh_token = undefined
+          token.expires_at = 0
           return token
         }
       }
     },
     session({ session, token }) {
       session.error = token.error
+      // Ensure the access_token is undefined if there was a refresh error
       session.user.access_token = token.access_token
       return session
     },
