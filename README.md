@@ -6,11 +6,9 @@
 pnpm dlx create-turbo@latest --example https://github.com/tamyikadze/mono-kadze-repo.git
 ```
 
-
 ## Getting Started
 
 First change the project name in the `package.json` and `./docker/docker-compose.local-dev.yml` files.
-
 
 Copy the `.env.example` file to `.env` and fill in the values.
 
@@ -38,13 +36,13 @@ pnpm install
 Create the database
 
 ```bash
-pnpm --filter @apps/db db:create
+pnpm create-db
 ```
 
 Migrate the database
 
 ```bash
-pnpm --filter @apps/db migrate:up
+pnpm migrate:up
 ```
 
 Start the development server
