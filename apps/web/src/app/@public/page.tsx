@@ -1,12 +1,13 @@
-import { LoginForm } from '@/app/@public/_components/login-form/form.tsx'
+import { LoginForm } from './_components/login-form'
+import { RegistrationForm } from './_components/registration-form'
 
-import { RegistrationForm } from './_components/registration-form.tsx/form'
-
-export default function Page() {
+const Page = () => {
   return (
-    <>
-      <RegistrationForm />
+    <div className="flex h-screen w-full items-center justify-center">
       <LoginForm />
-    </>
+      <RegistrationForm />
+    </div>
   )
 }
+
+export default Page

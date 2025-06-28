@@ -1,8 +1,8 @@
-import { router } from '../../trpc.js'
-import authMutations from './mutation.ts'
-import authQueries from './query.ts'
+import { router } from '../../trpc'
+import { authMutation } from './mutation'
+import { authQuery } from './query'
 
 export const authRouter = router({
-  ...authQueries,
-  ...authMutations,
+  ...authMutation,
+  ...authQuery,
 })

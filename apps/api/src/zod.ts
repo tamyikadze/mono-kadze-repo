@@ -1,1 +1,1 @@
-export { loginInputSchema } from './routes/auth/schema.ts'
+export * from './routes/auth/zod.ts'

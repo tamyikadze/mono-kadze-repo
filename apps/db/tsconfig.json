@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "Node16",               // Generate ES module code
-    "moduleResolution": "bundler",       // Node.js module resolution
+    "moduleResolution": "Node16",       // Node.js module resolution
     "outDir": "./dist",               // Output directory for compiled JS
     "rootDir": ".",               // Source directory
     "esModuleInterop": true,          // Enables compatibility with CommonJS

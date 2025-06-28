@@ -14,7 +14,8 @@
     "build": "tsc",
     "lint": "eslint './**'",
     "lint:fix": "eslint './**' --fix",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "generate:export-schema": "tsx src/utils/generate-export-schema.ts"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,7 @@
     "@apps/db": "workspace:*",
     "@fastify/cors": "^11.0.1",
     "@trpc/server": "^11.4.1",
+    "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",
     "drizzle-orm": "^0.44.2",
     "fastify": "^5.4.0",
@@ -34,6 +36,7 @@
     "@repo/config-eslint": "workspace:*",
     "@repo/config-prettier": "workspace:*",
     "@repo/config-typescript": "workspace:*",
+    "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.19",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.0.3",

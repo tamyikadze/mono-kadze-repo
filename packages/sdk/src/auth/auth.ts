@@ -1,6 +1,6 @@
-import { loginInputSchema } from '@apps/api/zod'
-import NextAuth from 'next-auth'
+import { tokenSchema } from '@apps/api/zod'
 import 'next-auth/jwt'
+import NextAuth from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
 
 import { trpcClient } from '../trpc'
@@ -32,7 +32,6 @@ declare module 'next-auth/jwt' {
 export const { auth, handlers, signIn, signOut } = NextAuth({
   callbacks: {
     async jwt({ token, user }) {
-      console.log(user)
       if (user) {
         // First-time login, save the `access_token`, its expiry and the `refresh_token`
         return {
@@ -72,35 +71,6 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       return session
     },
   },
-  providers: [
-    Credentials({
-      authorize: async credentials => {
-        const parsedCredentials = loginInputSchema.safeParse(credentials)
-
-        if (!parsedCredentials.success) {
-          return null
-        }
-
-        const { email, password } = parsedCredentials.data
-
-        const res = await trpcClient().auth.login.mutate({
-          email,
-          password,
-        })
-
-        return {
-          access_token: res.accessToken,
-          expires_at: Math.floor(Date.now() / 1000 + res.expiresIn),
-          refresh_token: res.refreshToken,
-        }
-      },
-      credentials: {
-        email: {},
-        password: {},
-        role: {},
-      },
-    }),
-  ],
   cookies: {
     callbackUrl: {
       name: process.env.CALLBACK_URL_COOKIE_NAME,
@@ -112,4 +82,33 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       name: process.env.SESSION_TOKEN_COOKIE_NAME,
     },
   },
+  providers: [
+    Credentials({
+      authorize: async credentials => {
+        const parsedCredentials = tokenSchema.safeParse(credentials)
+
+        if (!parsedCredentials.success) {
+          return null
+        }
+
+        const { accessToken, expiresIn, refreshToken } = parsedCredentials.data
+
+        const res = await trpcClient({ accessToken }).auth.me.query()
+
+        return {
+          access_token: accessToken,
+          expires_at: Math.floor(Date.now() / 1000 + expiresIn),
+          refresh_token: refreshToken,
+          user: {
+            id: res?.id,
+          },
+        }
+      },
+      credentials: {
+        access_token: {},
+        expires_at: {},
+        refresh_token: {},
+      },
+    }),
+  ],
 })

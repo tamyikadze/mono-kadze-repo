@@ -12,6 +12,6 @@ const me = protectedProcedure.query(async ({ ctx }) => {
   })
 })
 
-export default {
+export const authQuery = {
   me,
 }

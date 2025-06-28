@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "module": "Node16",               // Generate ES module code
-    "moduleResolution": "node16",       // Node.js module resolution
-    "rootDir": "./src",               // Source directory
-    "esModuleInterop": true,          // Enables compatibility with CommonJS
-    "strict": true,                   // Enable strict type checking
-    "skipLibCheck": true,             // Skip type checking of all declaration files
+    "module": "NodeNext",
+    "moduleResolution": "bundler",
+    "rootDir": "./src",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "declaration": false,
