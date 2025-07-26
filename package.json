@@ -13,11 +13,11 @@
     "create-db": "pnpm --filter @apps/db create-db"
   },
   "devDependencies": {
-    "dotenv-cli": "^8.0.0",
-    "turbo": "^2.5.4",
-    "@changesets/cli": "^2.29.4"
+    "@changesets/cli": "^2.29.5",
+    "dotenv-cli": "^9.0.0",
+    "turbo": "^2.5.5"
   },
-  "packageManager": "pnpm@10.6.3",
+  "packageManager": "pnpm@10.13.1",
   "engines": {
     "node": ">=22"
   },

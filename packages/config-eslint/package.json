@@ -4,31 +4,43 @@
   "private": true,
   "type": "module",
   "peerDependencies": {
-    "eslint": "^9.25.0",
+    "eslint": "^9.32.0",
     "typescript": "^5.8.3"
   },
+  "exports": {
+    "./base": "./base.mjs",
+    "./next": "./next.mjs",
+    "./react": "./react.mjs"
+  },
+  "scripts": {
+    "lint": "node_modules/.bin/eslint .",
+    "lint:fix": "node_modules/.bin/eslint --fix ."
+  },
   "devDependencies": {
+    "eslint": "^9.32.0",
     "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.29.0",
-    "@next/eslint-plugin-next": "^15.3.3",
-    "@typescript-eslint/eslint-plugin": "^8.34.1",
-    "@typescript-eslint/parser": "^8.34.1",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-config-turbo": "^2.5.4",
+    "@eslint/js": "^9.32.0",
+    "@next/eslint-plugin-next": "^15.4.4",
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/parser": "^8.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-config-turbo": "^2.5.5",
     "eslint-plugin-depend": "^1.2.0",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-perfectionist": "^4.14.0",
-    "eslint-plugin-prettier": "^5.5.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-perfectionist": "^4.15.0",
+    "eslint-plugin-prettier": "^5.5.3",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-compiler": "19.1.0-rc.2",
-    "eslint-plugin-sonarjs": "^3.0.3",
-    "eslint-plugin-turbo": "^2.5.4",
+    "eslint-plugin-sonarjs": "^3.0.4",
+    "eslint-plugin-turbo": "^2.5.5",
     "eslint-plugin-unused-imports": "^4.1.4",
-    "globals": "^16.2.0",
+    "globals": "^16.3.0",
     "prettier-eslint": "^16.4.2",
-    "typescript-eslint": "^8.34.1"
+    "typescript-eslint": "^8.38.0"
   },
   "dependencies": {
-    "eslint-plugin-unicorn": "^59.0.1"
+    "eslint-plugin-unicorn": "^60.0.0",
+    "lucide-react": "^0.525.0",
+    "zod": "^4.0.10"
   }
 }

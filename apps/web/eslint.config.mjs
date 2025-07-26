@@ -1,4 +1,4 @@
-import nextjsConfig from '@repo/config-eslint/next.js'
+import nextjsConfig from '@repo/config-eslint/next'
 
 export default [
   ...nextjsConfig,

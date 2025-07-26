@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "module": "Node16",               // Generate ES module code
+    "module": "ESNext",               // Generate ES module code
+    "target": "ESNext",
     "moduleResolution": "bundler",       // Node.js module resolution
     "outDir": "./dist",               // Output directory for compiled JS
     "rootDir": ".",               // Source directory

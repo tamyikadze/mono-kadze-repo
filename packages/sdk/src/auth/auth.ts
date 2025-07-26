@@ -72,6 +72,17 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       return session
     },
   },
+  cookies: {
+    callbackUrl: {
+      name: process.env.CALLBACK_URL_COOKIE_NAME,
+    },
+    csrfToken: {
+      name: process.env.CSRF_TOKEN_COOKIE_NAME,
+    },
+    sessionToken: {
+      name: process.env.SESSION_TOKEN_COOKIE_NAME,
+    },
+  },
   providers: [
     Credentials({
       authorize: async credentials => {
@@ -101,15 +112,4 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       },
     }),
   ],
-  cookies: {
-    callbackUrl: {
-      name: process.env.CALLBACK_URL_COOKIE_NAME,
-    },
-    csrfToken: {
-      name: process.env.CSRF_TOKEN_COOKIE_NAME,
-    },
-    sessionToken: {
-      name: process.env.SESSION_TOKEN_COOKIE_NAME,
-    },
-  },
 })
