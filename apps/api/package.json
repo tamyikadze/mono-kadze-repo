@@ -22,13 +22,14 @@
   "dependencies": {
     "@apps/db": "workspace:*",
     "@fastify/cors": "^11.0.1",
-    "@trpc/server": "^11.4.1",
+    "@trpc/server": "^11.4.3",
     "bcryptjs": "^3.0.2",
-    "drizzle-orm": "^0.44.2",
+    "drizzle-orm": "^0.44.3",
     "fastify": "^5.4.0",
     "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.525.0",
     "minio": "^8.0.5",
-    "zod": "^3.25.67"
+    "zod": "^4.0.10"
   },
   "devDependencies": {
     "@repo/config-eslint": "workspace:*",
@@ -36,9 +37,9 @@
     "@repo/config-typescript": "workspace:*",
     "@types/cors": "^2.8.19",
     "@types/jsonwebtoken": "^9.0.10",
-    "@types/node": "^24.0.3",
-    "eslint": "^9.29.0",
-    "prettier": "^3.5.3",
+    "@types/node": "^24.1.0",
+    "eslint": "^9.32.0",
+    "prettier": "^3.6.2",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   }
