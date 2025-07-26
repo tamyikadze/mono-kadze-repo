@@ -1,4 +1,4 @@
-import reactjsConfig from '@repo/config-eslint/react.js'
+import reactjsConfig from '@repo/config-eslint/react'
 
 export default [
   ...reactjsConfig,

@@ -1,12 +1,12 @@
 'use client'
 
+import { InsertIntoUsersInput, insertUserSchema } from '@apps/db/zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Form, FormControl, FormField, FormItem, FormLabel, Input } from '@repo/ui'
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
 
 import { register } from './action'
-import { InsertIntoUsersInput, insertUserSchema } from '@apps/db/zod'
 
 export const RegistrationForm = () => {
   const form = useForm<InsertIntoUsersInput>({

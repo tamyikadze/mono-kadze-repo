@@ -4,10 +4,20 @@
   "private": true,
   "type": "module",
   "peerDependencies": {
-    "eslint": "^9.25.0",
+    "eslint": "^9.32.0",
     "typescript": "^5.8.3"
   },
+  "exports": {
+    "./base": "./base.mjs",
+    "./next": "./next.mjs",
+    "./react": "./react.mjs"
+  },
+  "scripts": {
+    "lint": "node_modules/.bin/eslint .",
+    "lint:fix": "node_modules/.bin/eslint --fix ."
+  },
   "devDependencies": {
+    "eslint": "^9.32.0",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.32.0",
     "@next/eslint-plugin-next": "^15.4.4",
