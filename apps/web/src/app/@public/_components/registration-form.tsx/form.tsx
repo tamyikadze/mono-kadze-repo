@@ -5,8 +5,8 @@ import { Button, Form, FormControl, FormField, FormItem, FormLabel, Input } from
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
 
-import { InsertIntoUsersInput, insertUserSchema } from '../../../../../../db/src/schemas'
 import { register } from './action'
+import { InsertIntoUsersInput, insertUserSchema } from '@apps/db/zod'
 
 export const RegistrationForm = () => {
   const form = useForm<InsertIntoUsersInput>({

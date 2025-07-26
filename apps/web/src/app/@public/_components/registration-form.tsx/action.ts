@@ -2,8 +2,8 @@
 
 import { trpcClient } from '@repo/sdk'
 import { z } from 'zod'
+import { insertUserSchema } from '@apps/db/zod'
 
-import { insertUserSchema } from '../../../../../../db/src/schemas'
 
 export const register = async (data: z.infer<typeof insertUserSchema>) => {
   console.log(data)
