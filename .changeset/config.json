@@ -1,0 +1,10 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.1.1/schema.json",
+  "changelog": ["@changesets/changelog-github", { "repo": "cargoking/platform-app" }],
+  "commit": ["@changesets/cli/commit", {"skipCI":  false}],
+  "access": "restricted",
+  "baseBranch": "develop",
+  "updateInternalDependencies": "patch",
+  "ignore": ["@config/*", "admin-tests", "shipper-tests"],
+  "bumpVersionsWithWorkspaceProtocolOnly": true
+}
