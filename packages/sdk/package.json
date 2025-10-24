@@ -1,6 +1,6 @@
 {
   "name": "@repo/sdk",
-  "version": "1.1.1",
+  "version": "1.0.1",
   "description": "",
   "type": "module",
   "scripts": {
@@ -18,25 +18,25 @@
   "peerDependencies": {
     "@apps/api": "workspace:*",
     "@tanstack/react-query": "^5.74.4",
-    "next": "^15.3.1",
+    "next": "^16",
     "react": "^19.1.0",
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@trpc/client": "^11.4.4",
-    "@trpc/tanstack-react-query": "^11.4.4",
-    "lucide-react": "^0.539.0",
-    "next-auth": "5.0.0-beta.26",
-    "zod": "^4.0.17"
+    "@trpc/client": "^11.6.0",
+    "@trpc/tanstack-react-query": "^11.6.0",
+    "lucide-react": "^0.548.0",
+    "next-auth": "5.0.0-beta.29",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@repo/config-eslint": "workspace:*",
     "@repo/config-prettier": "workspace:*",
     "@repo/config-typescript": "workspace:*",
-    "@types/node": "^24.3.0",
-    "@types/react": "^19.1.10",
-    "eslint": "^9.33.0",
+    "@types/node": "^24.9.1",
+    "@types/react": "^19.2.2",
+    "eslint": "^9.38.0",
     "prettier": "^3.6.2",
-    "prettier-plugin-tailwindcss": "^0.6.14"
+    "prettier-plugin-tailwindcss": "^0.7.1"
   }
 }

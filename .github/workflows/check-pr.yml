@@ -1,0 +1,46 @@
+name: Pull Request Checks
+
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  version-plan-check:
+    name: Version Plan Check
+    runs-on: ubuntu-latest
+    # Skip version plan check for changesets release PRs (auto-generated)
+    if: github.head_ref != 'changeset-release/main'
+    permissions: write-all
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup
+        uses: ./.github/actions/setup
+        with:
+          node-version: 24
+
+      - name: Check for changesets
+        run: pnpm exec changeset status --since=origin/${{ github.base_ref }}
+
+  lint-and-type-check:
+    name: Lint & Type Check
+    needs: [version-plan-check]
+    if: always() && (needs.version-plan-check.result == 'success' || needs.version-plan-check.result == 'skipped')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup
+        uses: ./.github/actions/setup
+        with:
+          node-version: 24
+
+      - name: Run linter and type check
+        run: pnpm check:ci
