@@ -10,7 +10,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "lucide-react": "^0.539.0",
-    "zod": "^4.0.17"
+    "lucide-react": "^0.548.0",
+    "zod": "^4.1.12"
   }
 }

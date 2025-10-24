@@ -4,6 +4,7 @@
     "build": "turbo build",
     "start": "turbo start",
     "dev": "dotenv -e .env -- turbo dev",
+    "check": "turbo lint type-check",
     "lint": "turbo lint",
     "lint:fix": "turbo lint:fix",
     "migrate:up": "turbo migrate:up",
@@ -13,11 +14,11 @@
     "create-db": "pnpm --filter @apps/db create-db"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.5",
+    "@changesets/cli": "^2.29.7",
     "dotenv-cli": "^10.0.0",
-    "turbo": "^2.5.6"
+    "turbo": "^2.5.8"
   },
-  "packageManager": "pnpm@10.14.0",
+  "packageManager": "pnpm@10.19.0",
   "engines": {
     "node": ">=22"
   },
