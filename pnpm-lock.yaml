@@ -173,6 +173,9 @@ importers:
       '@apps/api':
         specifier: workspace:*
         version: link:../api
+      '@apps/db':
+        specifier: workspace:*
+        version: link:../db
       '@repo/config-eslint':
         specifier: workspace:*
         version: link:../../packages/config-eslint

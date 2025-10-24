@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@apps/api": "workspace:*",
+    "@apps/db": "workspace:*",
     "@repo/config-eslint": "workspace:*",
     "@repo/config-prettier": "workspace:*",
     "@repo/config-typescript": "workspace:*",
