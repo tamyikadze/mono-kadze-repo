@@ -1,0 +1,16 @@
+{
+  "name": "@scripts/release",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Release scripts for creating GitHub releases",
+  "dependencies": {
+    "@changesets/read": "^0.6.5",
+    "@changesets/get-release-plan": "^4.0.7",
+    "@changesets/types": "^6.0.2",
+    "@octokit/rest": "^21.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.9.1"
+  }
+}
