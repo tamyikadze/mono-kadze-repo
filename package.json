@@ -11,7 +11,8 @@
     "type-check": "turbo type-check",
     "clean": "turbo clean",
     "test": "turbo test",
-    "create-db": "pnpm --filter @apps/db create-db"
+    "create-db": "pnpm --filter @apps/db create-db",
+    "release": "node --experimental-strip-types ./scripts/release.ts"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.7",
