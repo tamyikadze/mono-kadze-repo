@@ -39,6 +39,5 @@ jobs:
         with:
           publish: pnpm release
           createGithubReleases: true
-          commit: 'Version Packages'
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_WITH_ACTIONS_TRIGGER }}

@@ -22,9 +22,5 @@
   "engines": {
     "node": ">=22"
   },
-  "name": "project-manager",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+  "name": "project-manager"
 }

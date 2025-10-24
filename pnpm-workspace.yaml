@@ -2,6 +2,7 @@ packages:
   - apps/**/*
   - packages/*
   - tests/*
+  - scripts
 
 onlyBuiltDependencies:
   - '@sentry/cli'
