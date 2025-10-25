@@ -13,6 +13,7 @@
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "@repo/sdk": "workspace:*",
+    "@repo/auth": "workspace:*",
     "@repo/ui": "workspace:*",
     "@tanstack/react-query": "^5.90.5",
     "lucide-react": "^0.548.0",
