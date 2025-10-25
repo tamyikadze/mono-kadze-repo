@@ -1,25 +1,28 @@
 'use client'
 
-import { loginInputSchema } from '@apps/api/zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { signIn } from '@repo/auth'
 import { Button, Form, FormControl, FormField, FormItem, FormLabel, Input } from '@repo/ui'
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import { login } from './action'
+const loginSchema = z.object({
+  email: z.email(),
+  password: z.string(),
+})
 
 export const LoginForm = () => {
-  const form = useForm<z.infer<typeof loginInputSchema>>({
+  const form = useForm({
     defaultValues: {
       email: '',
       password: '',
     },
-    resolver: zodResolver(loginInputSchema),
+    resolver: zodResolver(loginSchema),
   })
 
   const { isPending, mutate } = useMutation({
-    mutationFn: (data: z.infer<typeof loginInputSchema>) => login(data),
+    mutationFn: (data: z.output<typeof loginSchema>) => signIn.email(data),
   })
 
   return (

@@ -1,11 +1,10 @@
 import type { Metadata } from 'next'
 
-import { auth } from '@repo/sdk'
-
 import '@/style/globals.css'
+import { auth } from '@apps/api/auth'
 import { cn } from '@repo/ui/lib'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { ReactNode } from 'react'
+import { headers } from 'next/headers'
 
 import { Provider } from '@/providers/provider'
 
@@ -27,18 +26,17 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   protected: protectedApp,
   public: publicApp,
-}: Readonly<{
-  protected: ReactNode
-  public: ReactNode
-}>) {
-  const session = await auth()
+}: LayoutProps<'/'>) {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  })
+
+  console.log(session)
 
   return (
     <html lang="en">
       <body className={cn(geistSans.variable, geistMono.variable, 'antialiased')}>
-        <Provider accessToken={session?.user?.access_token}>
-          {!session ? publicApp : protectedApp}
-        </Provider>
+        <Provider>{!session ? publicApp : protectedApp}</Provider>
       </body>
     </html>
   )

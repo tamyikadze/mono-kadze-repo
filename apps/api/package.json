@@ -5,7 +5,8 @@
   "main": "index.js",
   "exports": {
     ".": "./src/index.ts",
-    "./zod": "./src/zod.ts"
+    "./zod": "./src/zod.ts",
+    "./auth": "./src/auth.ts"
   },
   "type": "module",
   "scripts": {

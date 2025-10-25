@@ -1,26 +1,39 @@
 'use client'
 
-import { InsertIntoUsersInput, insertUserSchema } from '@apps/db/zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { signUp } from '@repo/auth'
 import { Button, Form, FormControl, FormField, FormItem, FormLabel, Input } from '@repo/ui'
 import { useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
+import { z } from 'zod'
 
-import { register } from './action'
+const registrationSchema = z.object({
+  email: z.email(),
+  name: z.string(),
+  password: z.string(),
+})
 
 export const RegistrationForm = () => {
-  const form = useForm<InsertIntoUsersInput>({
+  const form = useForm({
     defaultValues: {
       email: '',
-      firstName: '',
-      lastName: '',
+      name: '',
       password: '',
     },
-    resolver: zodResolver(insertUserSchema),
+    resolver: zodResolver(registrationSchema),
   })
 
   const { isPending, mutate } = useMutation({
-    mutationFn: (data: InsertIntoUsersInput) => register(data),
+    mutationFn: async (values: z.output<typeof registrationSchema>) => {
+      const { data, error } = await signUp.email(values)
+
+      if (error) throw error
+
+      return data
+    },
+    onError: error => {
+      console.warn(error)
+    },
   })
 
   return (
@@ -30,23 +43,12 @@ export const RegistrationForm = () => {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(value => mutate(value))}>
           <FormField
-            name={'firstName'}
+            name={'name'}
             render={({ field }) => (
               <FormItem>
-                <FormLabel>First name</FormLabel>
+                <FormLabel>Name</FormLabel>
                 <FormControl>
-                  <Input {...field} placeholder="First name" type="text" />
-                </FormControl>
-              </FormItem>
-            )}
-          />
-          <FormField
-            name={'lastName'}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Last name</FormLabel>
-                <FormControl>
-                  <Input {...field} placeholder="Last name" type="text" />
+                  <Input {...field} placeholder="Name" type="text" />
                 </FormControl>
               </FormItem>
             )}

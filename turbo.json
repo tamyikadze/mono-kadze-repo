@@ -4,6 +4,7 @@
     "**/.env.*local",
     ".env"
   ],
+  "ui": "tui",
   "globalEnv": [
     "DB_HOST",
     "DB_NAME",

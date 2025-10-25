@@ -4,9 +4,9 @@ import { RegistrationForm } from './_components/registration-form.tsx/form'
 
 export default function Page() {
   return (
-    <>
+    <div className={'flex w-full min-w-svh items-center justify-center'}>
       <RegistrationForm />
       <LoginForm />
-    </>
+    </div>
   )
 }

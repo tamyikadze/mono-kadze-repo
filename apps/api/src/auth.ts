@@ -3,7 +3,7 @@ import { getAuth } from '@repo/auth'
 
 import { createServer } from './server'
 
-const auth = getAuth({ db })
+export const auth = getAuth({ db })
 
 export const setAuthRoute = (server: ReturnType<typeof createServer>) => {
   // Register authentication endpoint
