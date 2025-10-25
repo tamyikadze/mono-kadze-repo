@@ -20,7 +20,8 @@
     "lint:fix": "eslint './**' --fix",
     "db:create": "dotenv -e ../../.env -- tsx src/utils/create-db.ts",
     "type-check": "tsc --noEmit",
-    "generate:export-schema": "tsx src/utils/generate-export-schema.ts"
+    "generate:export-schema": "tsx src/utils/generate-export-schema.ts",
+    "auth:generate-schema": "npx @better-auth/cli@latest generate --config ./src/auth.ts --output ./src/schemas/auth/schema.ts"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,7 @@
     "pg": "^8.14.1"
   },
   "dependencies": {
+    "@repo/auth": "workspace:*",
     "drizzle-orm": "^0.44.7",
     "drizzle-zod": "^0.8.3",
     "glob": "^11.0.3",
