@@ -1,1 +1,1 @@
-export { loginInputSchema } from './routes/auth/schema.ts'
+// export { loginInputSchema } from './routes/auth/schema.ts' // TODO: Create auth routes schema
