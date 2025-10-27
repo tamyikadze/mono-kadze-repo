@@ -2,17 +2,19 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { signIn } from '@repo/auth'
-import { Button, Form, FormControl, FormField, FormItem, FormLabel, Input } from '@repo/ui'
+import { Button, Form, FormControl, FormField, FormItem, FormLabel, Input, Spinner } from '@repo/ui'
 import { useMutation } from '@tanstack/react-query'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 const loginSchema = z.object({
-  email: z.email(),
-  password: z.string(),
+  email: z.email('Please enter a valid email address'),
+  password: z.string().min(1, 'Password is required'),
 })
 
 export const LoginForm = () => {
+  const router = useRouter()
   const form = useForm({
     defaultValues: {
       email: '',
@@ -22,7 +24,21 @@ export const LoginForm = () => {
   })
 
   const { isPending, mutate } = useMutation({
-    mutationFn: (data: z.output<typeof loginSchema>) => signIn.email(data),
+    mutationFn: async (values: z.output<typeof loginSchema>) => {
+      const { data, error } = await signIn.email(values)
+
+      if (error) throw error
+
+      return data
+    },
+    onError: error => {
+      console.warn(error)
+    },
+    onSuccess: () => {
+      // Redirect to home/dashboard after successful login
+      router.push('/')
+      router.refresh()
+    },
   })
 
   return (
@@ -53,8 +69,8 @@ export const LoginForm = () => {
               </FormItem>
             )}
           />
-          <Button isPending={isPending} type="submit">
-            Login
+          <Button disabled={isPending} type="submit">
+            Login {isPending && <Spinner />}
           </Button>
         </form>
       </Form>

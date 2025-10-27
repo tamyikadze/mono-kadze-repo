@@ -2,18 +2,20 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { signUp } from '@repo/auth'
-import { Button, Form, FormControl, FormField, FormItem, FormLabel, Input } from '@repo/ui'
+import { Button, Form, FormControl, FormField, FormItem, FormLabel, Input, Spinner } from '@repo/ui'
 import { useMutation } from '@tanstack/react-query'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 const registrationSchema = z.object({
-  email: z.email(),
-  name: z.string(),
-  password: z.string(),
+  email: z.email('Please enter a valid email address'),
+  name: z.string().min(1, 'Name is required'),
+  password: z.string().min(8, 'Password must be at least 8 characters'),
 })
 
 export const RegistrationForm = () => {
+  const router = useRouter()
   const form = useForm({
     defaultValues: {
       email: '',
@@ -34,11 +36,17 @@ export const RegistrationForm = () => {
     onError: error => {
       console.warn(error)
     },
+    onSuccess: () => {
+      // Redirect to home/dashboard after successful registration
+      // Better Auth auto-signs in by default after registration
+      router.push('/')
+      router.refresh()
+    },
   })
 
   return (
     <div>
-      <h1>Login</h1>
+      <h1>Sign Up</h1>
       {form.formState.errors && <p>Errors: {JSON.stringify(form.formState.errors)}</p>}
       <Form {...form}>
         <form onSubmit={form.handleSubmit(value => mutate(value))}>
@@ -75,8 +83,8 @@ export const RegistrationForm = () => {
               </FormItem>
             )}
           />
-          <Button isPending={isPending} type="submit">
-            Register
+          <Button disabled={isPending} type="submit">
+            Register {isPending && <Spinner />}
           </Button>
         </form>
       </Form>
