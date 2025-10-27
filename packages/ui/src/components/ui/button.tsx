@@ -1,5 +1,4 @@
 import { Slot } from '@radix-ui/react-slot'
-import { Spinner } from '@repo/ui/components'
 import { cn } from '@repo/ui/lib'
 import { cva, type VariantProps } from 'class-variance-authority'
 import * as React from 'react'
@@ -35,14 +34,12 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
-  isPending?: boolean
 }
 
 const Button = ({
   asChild = false,
   children,
   className,
-  isPending = false,
   ref,
   size,
   variant,
@@ -50,13 +47,8 @@ const Button = ({
 }: ButtonProps & { ref?: Ref<HTMLButtonElement> }) => {
   const Comp = asChild ? Slot : 'button'
   return (
-    <Comp
-      className={cn(buttonVariants({ className, size, variant }))}
-      disabled={isPending}
-      ref={ref}
-      {...props}
-    >
-      {children} {isPending && <Spinner />}
+    <Comp className={cn(buttonVariants({ className, size, variant }))} ref={ref} {...props}>
+      {children}
     </Comp>
   )
 }
