@@ -16,11 +16,16 @@ export const trpcClient = (props?: { accessToken?: string }) =>
       splitLink({
         condition: op => op.type === 'subscription',
         false: httpBatchStreamLink({
-          headers: props?.accessToken ? { Authorization: `Bearer ${props.accessToken}` } : {},
-          url: process.env.NEXT_PUBLIC_API_URL!,
+          fetch: (url, options) => {
+            return fetch(url, {
+              ...options,
+              credentials: 'include',
+            })
+          },
+          url: process.env.NEXT_PUBLIC_API_URL! + '/trpc',
         }),
         true: httpSubscriptionLink({
-          url: process.env.NEXT_PUBLIC_API_URL!,
+          url: process.env.NEXT_PUBLIC_API_URL! + '/trpc',
         }),
       }),
     ],
