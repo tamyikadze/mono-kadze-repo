@@ -12,7 +12,8 @@
   },
   "private": true,
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./actions": "./src/actions/index.ts"
   },
   "peerDependencies": {
     "next": "^16"
