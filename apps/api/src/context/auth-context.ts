@@ -1,20 +1,21 @@
+import { fromNodeHeaders } from '@repo/auth'
 import { CreateFastifyContextOptions } from '@trpc/server/adapters/fastify'
 
-import { decodeAndVerifyJwtToken } from '../routes/auth/util.js'
+import { auth } from '../auth'
 
 export type AuthContext = Awaited<ReturnType<typeof createContext>>
 
 export async function createContext(opts: CreateFastifyContextOptions) {
-  async function getUserFromHeader() {
-    if (opts.req.headers.authorization) {
-      return decodeAndVerifyJwtToken(opts.req.headers.authorization.split(' ')[1])
-    }
-    return null
-  }
+  // Convert Fastify headers to Headers object for Better Auth
+  const headers = fromNodeHeaders(opts.req.headers)
 
-  const user = await getUserFromHeader()
+  // Validate session using Better Auth
+  const session = await auth.api.getSession({
+    headers,
+  })
 
   return {
-    user,
+    session: session?.session ?? null,
+    user: session?.user ?? null,
   }
 }

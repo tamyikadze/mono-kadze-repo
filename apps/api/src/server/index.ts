@@ -7,15 +7,14 @@ import { AppRouter, appRouter } from './router.js'
 
 export const createServer = () => {
   const server = fastify({
-    logger: true,
     maxParamLength: 5000,
   })
 
   server.register(cors, {
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
     credentials: true,
     maxAge: 86400,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    // Must specify exact origin when credentials: true (cannot use '*')
     origin: process.env.CLIENT_ORIGIN || 'http://localhost:3000',
   })
 
