@@ -1,0 +1,10 @@
+{
+  "extends": "@repo/config-typescript/react-library.json",
+  "compilerOptions": {
+    "declaration": false
+  },
+  "exclude": ["dist/**/*"],
+  "include": [
+    ".eslintrc.js", "src"]
+}
+

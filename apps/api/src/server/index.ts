@@ -11,7 +11,11 @@ export const createServer = () => {
   })
 
   server.register(cors, {
-    origin: '*',
+    credentials: true,
+    maxAge: 86400,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    // Must specify exact origin when credentials: true (cannot use '*')
+    origin: process.env.CLIENT_ORIGIN || 'http://localhost:3000',
   })
 
   server.register(fastifyTRPCPlugin, {

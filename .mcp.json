@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "next-devtools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "next-devtools-mcp@latest"
+      ]
+    },
+    "better-auth": {
+      "type": "http",
+      "url": "https://mcp.chonkie.ai/better-auth/better-auth-builder/mcp"
+    },
+    "jetbrains": {
+      "url": "http://localhost:64342/sse",
+      "type": "sse"
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": ["-y", "chrome-devtools-mcp@latest"]
+    }
+  }
+}

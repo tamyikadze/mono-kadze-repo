@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "module": "Node16",               // Generate ES module code
-    "moduleResolution": "node16",       // Node.js module resolution
+    "module": "ESNext",               // Generate ES module code
+    "target": "ESNext",
+    "moduleResolution": "bundler",
     "rootDir": "./src",               // Source directory
     "esModuleInterop": true,          // Enables compatibility with CommonJS
     "strict": true,                   // Enable strict type checking

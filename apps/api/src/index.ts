@@ -1,6 +1,7 @@
 import { client } from '@apps/db'
 
-import { createServer } from './server/index.ts'
+import { setAuthRoute } from './auth.ts'
+import { createServer } from './server'
 
 client.connect()
 
@@ -8,6 +9,8 @@ const server = createServer()
 
 ;(async () => {
   try {
+    setAuthRoute(server)
+
     await server.listen({ port: 4000 })
     console.log('Server is running on http://localhost:4000')
   } catch (err) {

@@ -8,6 +8,20 @@
       "when": 1741292841525,
       "tag": "0000_minor_shocker",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1761375769029,
+      "tag": "0001_closed_rocket_raccoon",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1761375811967,
+      "tag": "0002_stale_makkari",
+      "breakpoints": true
     }
   ]
 }

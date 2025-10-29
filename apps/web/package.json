@@ -8,11 +8,12 @@
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "type-check": "tsc --noEmit"
+    "type-check": "next typegen && tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "@repo/sdk": "workspace:*",
+    "@repo/auth": "workspace:*",
     "@repo/ui": "workspace:*",
     "@tanstack/react-query": "^5.90.5",
     "lucide-react": "^0.548.0",
@@ -38,7 +39,9 @@
     "prettier": "^3.6.2",
     "tailwindcss": "^4.1.16",
     "typescript": "^5.9.3",
-    "prettier-plugin-tailwindcss": "^0.7.1"
+    "prettier-plugin-tailwindcss": "^0.7.1",
+    "pg": "^8.16.3",
+    "babel-plugin-react-compiler": "^1.0.0"
   },
   "pnpm": {
     "overrides": {

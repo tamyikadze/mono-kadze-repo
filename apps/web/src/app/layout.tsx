@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
 
-import { auth } from '@repo/sdk'
-
 import '@/style/globals.css'
+import { getSession } from '@repo/auth/actions'
+import { Spinner } from '@repo/ui'
 import { cn } from '@repo/ui/lib'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { ReactNode } from 'react'
+import { cookies } from 'next/headers'
+import { Suspense } from 'react'
 
-import { Provider } from '@/providers/provider'
+import { Provider } from '@/providers/provider.tsx'
 
 const geistSans = Geist({
   subsets: ['latin'],
@@ -24,22 +25,28 @@ export const metadata: Metadata = {
   title: 'Manage your projects',
 }
 
-export default async function RootLayout({
-  protected: protectedApp,
-  public: publicApp,
-}: Readonly<{
-  protected: ReactNode
-  public: ReactNode
-}>) {
-  const session = await auth()
-
+export default function RootLayout(props: LayoutProps<'/'>) {
   return (
     <html lang="en">
       <body className={cn(geistSans.variable, geistMono.variable, 'antialiased')}>
-        <Provider accessToken={session?.user?.access_token}>
-          {!session ? publicApp : protectedApp}
+        <Provider>
+          <Suspense fallback={<Fallback />}>
+            <Loader {...props} />
+          </Suspense>
         </Provider>
       </body>
     </html>
   )
 }
+
+const Loader = async (props: LayoutProps<'/'>) => {
+  const data = await getSession({ cookies: await cookies() })
+
+  return !data ? props.public : props.protected
+}
+
+const Fallback = () => (
+  <div className={'flex min-h-svh w-full items-center justify-center'}>
+    <Spinner className={'size-24'} />
+  </div>
+)

@@ -16,7 +16,10 @@
     "NEXT_PUBLIC_API_URL",
     "CALLBACK_URL_COOKIE_NAME",
     "CSRF_TOKEN_COOKIE_NAME",
-    "SESSION_TOKEN_COOKIE_NAME"
+    "SESSION_TOKEN_COOKIE_NAME",
+    "BETTER_AUTH_URL",
+    "SERVER_URL",
+    "CLIENT_ORIGIN"
   ],
   "tasks": {
     "build": {
@@ -26,10 +29,15 @@
     },
     "lint": {},
     "lint:fix": {},
-    "type-check": {},
+    "type-check": {
+      "dependsOn": [
+        "^type-check"
+      ],
+      "cache": true
+    },
     "dev": {
       "cache": false,
-      "persistent": true
+      "persistent": false
     },
     "clean": {
       "cache": false

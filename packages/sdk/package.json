@@ -26,7 +26,6 @@
     "@trpc/client": "^11.6.0",
     "@trpc/tanstack-react-query": "^11.6.0",
     "lucide-react": "^0.548.0",
-    "next-auth": "5.0.0-beta.29",
     "zod": "^4.1.12"
   },
   "devDependencies": {
