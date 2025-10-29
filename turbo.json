@@ -29,7 +29,12 @@
     },
     "lint": {},
     "lint:fix": {},
-    "type-check": {},
+    "type-check": {
+      "dependsOn": [
+        "^type-check"
+      ],
+      "cache": true
+    },
     "dev": {
       "cache": false,
       "persistent": false
