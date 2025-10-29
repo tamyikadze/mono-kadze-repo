@@ -28,6 +28,7 @@
     "@repo/config-typescript": "workspace:*",
     "@types/node": "^24.9.1",
     "eslint": "^9.38.0",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.7.1"
   }
 }
