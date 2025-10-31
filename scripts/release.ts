@@ -21,7 +21,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Apps to create releases for
-const APPS = ['admin', 'shipper'] as const;
+const APPS = ['api', 'db', 'web'] as const;
 
 interface PackageJson {
   name: string;
