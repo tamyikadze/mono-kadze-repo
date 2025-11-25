@@ -1,22 +1,24 @@
+import { serve } from '@hono/node-server'
 import { client } from '@apps/db'
 
-import { setAuthRoute } from './auth.ts'
-import { createServer } from './server'
+import { authRoutes } from './auth.ts'
+import { createApp } from './server'
 
 client.connect()
 
-const server = createServer()
+const app = createApp()
 
-;(async () => {
-  try {
-    setAuthRoute(server)
+// Mount auth routes
+app.route('/', authRoutes)
 
-    await server.listen({ port: 4000 })
-    console.log('Server is running on http://localhost:4000')
-  } catch (err) {
-    server.log.error(err)
-    process.exit(1)
-  }
-})()
+serve(
+  {
+    fetch: app.fetch,
+    port: 4000,
+  },
+  info => {
+    console.log(`Server is running on http://localhost:${info.port}`)
+  },
+)
 
 export type { AppRouter, RouterInput, RouterOutput } from './server/router.ts'
