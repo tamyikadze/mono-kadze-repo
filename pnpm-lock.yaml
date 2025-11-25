@@ -27,7 +27,7 @@ importers:
         specifier: workspace:*
         version: link:../db
       '@hono/node-server':
-        specifier: ^1.14.3
+        specifier: ^1.19.6
         version: 1.19.6(hono@4.10.6)
       '@hono/trpc-server':
         specifier: ^0.4.0
@@ -45,7 +45,7 @@ importers:
         specifier: ^0.44.7
         version: 0.44.7(@types/pg@8.15.5)(kysely@0.28.8)(pg@8.16.3)
       hono:
-        specifier: ^4.7.10
+        specifier: ^4.10.6
         version: 4.10.6
       jsonwebtoken:
         specifier: ^9.0.2
